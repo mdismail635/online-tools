@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Discover a wide range of free online tools for images, PDFs, and more. Optimize, convert, and compress files effortlessly.">
+    <meta name="keywords" content="image tools, PDF tools, online tools, compress images, convert PDF, SEO tools">
+    <meta name="author" content="Your Company Name">
+    <title>Online Tools - Image & PDF Tools</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-x: hidden;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 159, 67, 0.2), transparent 70%);
+            animation: float 6s infinite linear;
+            z-index: -1;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translate(0, 0);
+            }
+            50% {
+                transform: translate(50%, 50%);
+            }
+            100% {
+                transform: translate(0, 0);
+            }
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 3rem;
+            color: #ff9f43;
+            text-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        header p {
+            margin: 10px 0 0;
+            font-size: 1.2rem;
+            color: #f0f0f0;
+        }
+
+        main {
+            width: 90%;
+            max-width: 1200px;
+            margin: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        /* Tool Cards */
+        .tool-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            width: calc(33.333% - 40px);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tool-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 159, 67, 0.3), transparent 70%);
+            animation: float 8s infinite linear;
+            z-index: -1;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .tool-card i {
+            font-size: 3rem;
+            color: #ff9f43;
+            margin-bottom: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .tool-card:hover i {
+            transform: rotate(15deg) scale(1.1);
+        }
+
+        .tool-card h2 {
+            margin: 0;
+            font-size: 1.5rem;
+            color: #fff;
+        }
+
+        .tool-card p {
+            margin: 10px 0 0;
+            font-size: 1rem;
+            color: #f0f0f0;
+        }
+
+        .tool-card a {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background: #ff9f43;
+            color: #fff;
+            border-radius: 25px;
+            text-decoration: none;
+            transition: background 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .tool-card a:hover {
+            background: #ff7f00;
+            transform: translateY(-3px);
+        }
+
+        /* Auto Picture Edit Section */
+        #auto-edit-section {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            width: 100%;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        #auto-edit-section h2 {
+            margin: 0 0 20px;
+            font-size: 2rem;
+            color: #ff9f43;
+        }
+
+        #auto-edit-section input[type="file"] {
+            display: none;
+        }
+
+        #auto-edit-section label {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #ff9f43;
+            color: #fff;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        #auto-edit-section label:hover {
+            background: #ff7f00;
+            transform: translateY(-3px);
+        }
+
+        #auto-edit-section canvas {
+            max-width: 100%;
+            border-radius: 10px;
+            margin-top: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            margin: 20px;
+            width: 90%;
+            max-width: 1200px;
+        }
+
+        footer p {
+            margin: 0;
+            color: #f0f0f0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .tool-card {
+                width: calc(50% - 40px);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .tool-card {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Online Tools</h1>
+        <p>Your one-stop destination for free image and PDF tools. Optimize, convert, and compress files effortlessly.</p>
+    </header>
+
+    <main>
+        <!-- Image Tools -->
+        <div class="tool-card">
+            <i class="fas fa-image"></i>
+            <h2>Image Compressor</h2>
+            <p>Compress and optimize images for faster web performance.</p>
+            <a href="#">Use Tool</a>
+        </div>
+
+        <div class="tool-card">
+            <i class="fas fa-file-image"></i>
+            <h2>Image Converter</h2>
+            <p>Convert images to different formats like JPG, PNG, and more.</p>
+            <a href="#">Use Tool</a>
+        </div>
+
+        <div class="tool-card">
+            <i class="fas fa-crop"></i>
+            <h2>Image Resizer</h2>
+            <p>Resize images to your desired dimensions.</p>
+            <a href="#">Use Tool</a>
+        </div>
+
+        <!-- PDF Tools -->
+        <div class="tool-card">
+            <i class="fas fa-file-pdf"></i>
+            <h2>PDF Compressor</h2>
+            <p>Reduce the size of your PDF files without losing quality.</p>
+            <a href="#">Use Tool</a>
+        </div>
+
+        <div class="tool-card">
+            <i class="fas fa-file-export"></i>
+            <h2>PDF to Word</h2>
+            <p>Convert PDF files to editable Word documents.</p>
+            <a href="#">Use Tool</a>
+        </div>
+
+        <div class="tool-card">
+            <i class="fas fa-file-import"></i>
+            <h2>Word to PDF</h2>
+            <p>Convert Word documents to PDF files.</p>
+            <a href="#">Use Tool</a>
+        </div>
+
+        <!-- More Tools -->
+        <div class="tool-card">
+            <i class="fas fa-qrcode"></i>
+            <h2>QR Code Generator</h2>
+            <p>Create QR codes for URLs, text, and more.</p>
+            <a href="#">Use Tool</a>
+        </div>
+
+        <div class="tool-card">
+            <i class="fas fa-palette"></i>
+            <h2>Color Picker</h2>
+            <p>Pick and copy colors from images or gradients.</p>
+            <a href="#">Use Tool</a>
+        </div>
+
+        <div class="tool-card">
+            <i class="fas fa-file-alt"></i>
+            <h2>Text Extractor</h2>
+            <p>Extract text from images or PDFs.</p>
+            <a href="#">Use Tool</a>
+        </div>
+
+        <!-- Auto Picture Edit Section -->
+        <section id="auto-edit-section">
+            <h2>Auto Picture Edit</h2>
+            <label for="image-upload">Upload Image</label>
+            <input type="file" id="image-upload" accept="image/*">
+            <canvas id="image-canvas"></canvas>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Online Tools. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Auto Picture Edit Functionality
+        const imageUpload = document.getElementById('image-upload');
+        const imageCanvas = document.getElementById('image-canvas');
+        const ctx = imageCanvas.getContext('2d');
+
+        imageUpload.addEventListener('change', function (e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (event) {
+                    const img = new Image();
+                    img.src = event.target.result;
+
+                    img.onload = function () {
+                        imageCanvas.width = img.width;
+                        imageCanvas.height = img.height;
+                        ctx.drawImage(img, 0, 0);
+
+                        // Apply auto edits (brightness, contrast, saturation, grayscale)
+                        applyAutoEdits();
+                    };
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        function applyAutoEdits() {
+            const imageData = ctx.getImageData(0, 0, imageCanvas.width, imageCanvas.height);
+            const data = imageData.data;
+
+            for (let i = 0; i < data.length; i += 4) {
+                // Brightness (+20%)
+                data[i] = Math.min(data[i] * 1.2, 255); // Red
+                data[i + 1] = Math.min(data[i + 1] * 1.2, 255); // Green
+                data[i + 2] = Math.min(data[i + 2] * 1.2, 255); // Blue
+
+                // Contrast (+20%)
+                const factor = 1.2;
+                data[i] = (data[i] - 128) * factor + 128; // Red
+                data[i + 1] = (data[i + 1] - 128) * factor + 128; // Green
+                data[i + 2] = (data[i + 2] - 128) * factor + 128; // Blue
+
+                // Saturation (+20%)
+                const avg = (data[i] + data[i + 1] + data[i + 2]) / 3;
+                data[i] = avg + (data[i] - avg) * 1.2; // Red
+                data[i + 1] = avg + (data[i + 1] - avg) * 1.2; // Green
+                data[i + 2] = avg + (data[i + 2] - avg) * 1.2; // Blue
+
+                // Grayscale (optional)
+                // const gray = 0.3 * data[i] + 0.59 * data[i + 1] + 0.11 * data[i + 2];
+                // data[i] = data[i + 1] = data[i + 2] = gray;
+            }
+
+            ctx.putImageData(imageData, 0, 0);
+        }
+    </script>
+</body>
+</html>
