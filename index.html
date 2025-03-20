@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Discover a wide range of free online tools for images, PDFs, and more. Optimize, convert, and compress files effortlessly.">
     <meta name="keywords" content="image tools, PDF tools, online tools, compress images, convert PDF, SEO tools">
-    <meta name="author" content="MD ISMAIL MAJUMDAR">
+    <meta name="author" content="Your Company Name">
     <title>Online Tools - Image & PDF Tools</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
@@ -266,6 +266,11 @@
     </header>
 
     <main>
+        <!-- Ad Banner -->
+        <div id="ad-banner" style="width: 100%; text-align: center; margin-bottom: 20px;">
+            <!-- Ad will be loaded here automatically -->
+        </div>
+
         <!-- Image Tools -->
         <div class="tool-card">
             <i class="fas fa-image"></i>
@@ -347,6 +352,12 @@
     </footer>
 
     <script>
+        // Load Ad Automatically
+        const adBanner = document.getElementById("ad-banner");
+        adBanner.innerHTML = `
+            <img src="https://via.placeholder.com/728x90" alt="Advertisement" style="width: 100%; max-width: 728px; height: auto; border-radius: 10px;">
+        `;
+
         // Modal functionality
         const modal = document.getElementById("toolModal");
         const span = document.getElementsByClassName("close")[0];
@@ -368,10 +379,6 @@
         const qualityValue = document.getElementById("quality-value");
         const compressionQualityContainer = document.getElementById("compression-quality-container");
 
-        compressImageBtn.addEventListener("click", () => {
-            imageCompressorInput.click();
-        });
-
         imageCompressorInput.addEventListener("change", () => {
             compressionQualityContainer.style.display = "block";
         });
@@ -380,6 +387,8 @@
             const file = imageCompressorInput.files[0];
             if (file) {
                 compressImage(file, compressionQuality.value);
+            } else {
+                alert("Please select an image first.");
             }
         });
 
@@ -414,14 +423,19 @@
         const convertImageBtn = document.getElementById("convert-image-btn");
         const imageConverterFormat = document.getElementById("image-converter-format");
 
-        convertImageBtn.addEventListener("click", () => {
-            imageConverterInput.click();
-        });
-
         imageConverterInput.addEventListener("change", () => {
             const file = imageConverterInput.files[0];
             if (file) {
                 convertImage(file, imageConverterFormat.value);
+            }
+        });
+
+        convertImageBtn.addEventListener("click", () => {
+            const file = imageConverterInput.files[0];
+            if (file) {
+                convertImage(file, imageConverterFormat.value);
+            } else {
+                alert("Please select an image first.");
             }
         });
 
@@ -454,10 +468,6 @@
         const imageResizerHeight = document.getElementById("image-resizer-height");
         const lockAspectRatio = document.getElementById("lock-aspect-ratio");
         const resizeOptions = document.getElementById("resize-options");
-
-        resizeImageBtn.addEventListener("click", () => {
-            imageResizerInput.click();
-        });
 
         imageResizerInput.addEventListener("change", () => {
             resizeOptions.style.display = "block";
@@ -495,6 +505,8 @@
                 } else {
                     alert("Please enter valid width and height.");
                 }
+            } else {
+                alert("Please select an image first.");
             }
         });
 
@@ -557,7 +569,6 @@
         convertWordToPdfBtn.addEventListener("click", () => {
             wordToPdfInput.click();
         });
-
         wordToPdfInput.addEventListener("change", () => {
             const file = wordToPdfInput.files[0];
             if (file) {
@@ -567,3 +578,5 @@
     </script>
 </body>
 </html>
+
+ 
