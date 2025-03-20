@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Discover a wide range of free online tools for images, PDFs, and more. Optimize, convert, and compress files effortlessly.">
     <meta name="keywords" content="image tools, PDF tools, online tools, compress images, convert PDF, SEO tools">
-    <meta name="author" content="Your Company Name">
+    <meta name="author" content="MD ISMAIL MAJUMDAR">
     <title>Online Tools - Image & PDF Tools</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
@@ -276,8 +276,7 @@
                 <label for="compression-quality">Quality: <span id="quality-value">70</span>%</label>
                 <input type="range" id="compression-quality" min="1" max="100" value="70">
             </div>
-            <button id="compress-image-btn" style="display: none;">Compress</button>
-            <a href="#" class="use-tool-btn" id="image-compressor-btn">Use Tool</a>
+            <button id="compress-image-btn" style="margin-top: 10px;">Compress</button>
         </div>
 
         <div class="tool-card">
@@ -290,8 +289,7 @@
                 <option value="png">PNG</option>
                 <option value="webp">WEBP</option>
             </select>
-            <button id="convert-image-btn" style="display: none;">Convert</button>
-            <a href="#" class="use-tool-btn" id="image-converter-btn">Use Tool</a>
+            <button id="convert-image-btn" style="margin-top: 10px;">Convert</button>
         </div>
 
         <div class="tool-card">
@@ -306,8 +304,7 @@
                 <input type="number" id="image-resizer-height" placeholder="Height">
                 <label><input type="checkbox" id="lock-aspect-ratio"> Lock Aspect Ratio</label>
             </div>
-            <button id="resize-image-btn" style="display: none;">Resize</button>
-            <a href="#" class="use-tool-btn" id="image-resizer-btn">Use Tool</a>
+            <button id="resize-image-btn" style="margin-top: 10px;">Resize</button>
         </div>
 
         <!-- PDF Tools -->
@@ -316,8 +313,7 @@
             <h2>PDF Compressor</h2>
             <p>Reduce the size of your PDF files without losing quality.</p>
             <input type="file" id="pdf-compressor-input" accept="application/pdf">
-            <button id="compress-pdf-btn" style="display: none;">Compress</button>
-            <a href="#" class="use-tool-btn" id="pdf-compressor-btn">Use Tool</a>
+            <button id="compress-pdf-btn" style="margin-top: 10px;">Compress</button>
         </div>
 
         <div class="tool-card">
@@ -325,8 +321,7 @@
             <h2>PDF to Word</h2>
             <p>Convert PDF files to editable Word documents.</p>
             <input type="file" id="pdf-to-word-input" accept="application/pdf">
-            <button id="convert-pdf-to-word-btn" style="display: none;">Convert</button>
-            <a href="#" class="use-tool-btn" id="pdf-to-word-btn">Use Tool</a>
+            <button id="convert-pdf-to-word-btn" style="margin-top: 10px;">Convert</button>
         </div>
 
         <div class="tool-card">
@@ -334,8 +329,7 @@
             <h2>Word to PDF</h2>
             <p>Convert Word documents to PDF files.</p>
             <input type="file" id="word-to-pdf-input" accept=".doc,.docx">
-            <button id="convert-word-to-pdf-btn" style="display: none;">Convert</button>
-            <a href="#" class="use-tool-btn" id="word-to-pdf-btn">Use Tool</a>
+            <button id="convert-word-to-pdf-btn" style="margin-top: 10px;">Convert</button>
         </div>
     </main>
 
@@ -355,15 +349,7 @@
     <script>
         // Modal functionality
         const modal = document.getElementById("toolModal");
-        const toolButtons = document.querySelectorAll(".use-tool-btn");
         const span = document.getElementsByClassName("close")[0];
-
-        toolButtons.forEach(button => {
-            button.addEventListener("click", function(e) {
-                e.preventDefault();
-                modal.style.display = "block";
-            });
-        });
 
         span.onclick = function() {
             modal.style.display = "none";
@@ -377,20 +363,17 @@
 
         // Image Compressor
         const imageCompressorInput = document.getElementById("image-compressor-input");
-        const imageCompressorBtn = document.getElementById("image-compressor-btn");
         const compressImageBtn = document.getElementById("compress-image-btn");
         const compressionQuality = document.getElementById("compression-quality");
         const qualityValue = document.getElementById("quality-value");
         const compressionQualityContainer = document.getElementById("compression-quality-container");
 
-        imageCompressorBtn.addEventListener("click", (e) => {
-            e.preventDefault();
+        compressImageBtn.addEventListener("click", () => {
             imageCompressorInput.click();
         });
 
         imageCompressorInput.addEventListener("change", () => {
             compressionQualityContainer.style.display = "block";
-            compressImageBtn.style.display = "inline-block";
         });
 
         compressImageBtn.addEventListener("click", () => {
@@ -428,20 +411,14 @@
 
         // Image Converter
         const imageConverterInput = document.getElementById("image-converter-input");
-        const imageConverterBtn = document.getElementById("image-converter-btn");
         const convertImageBtn = document.getElementById("convert-image-btn");
         const imageConverterFormat = document.getElementById("image-converter-format");
 
-        imageConverterBtn.addEventListener("click", (e) => {
-            e.preventDefault();
+        convertImageBtn.addEventListener("click", () => {
             imageConverterInput.click();
         });
 
         imageConverterInput.addEventListener("change", () => {
-            convertImageBtn.style.display = "inline-block";
-        });
-
-        convertImageBtn.addEventListener("click", () => {
             const file = imageConverterInput.files[0];
             if (file) {
                 convertImage(file, imageConverterFormat.value);
@@ -472,21 +449,18 @@
 
         // Image Resizer
         const imageResizerInput = document.getElementById("image-resizer-input");
-        const imageResizerBtn = document.getElementById("image-resizer-btn");
         const resizeImageBtn = document.getElementById("resize-image-btn");
         const imageResizerWidth = document.getElementById("image-resizer-width");
         const imageResizerHeight = document.getElementById("image-resizer-height");
         const lockAspectRatio = document.getElementById("lock-aspect-ratio");
         const resizeOptions = document.getElementById("resize-options");
 
-        imageResizerBtn.addEventListener("click", (e) => {
-            e.preventDefault();
+        resizeImageBtn.addEventListener("click", () => {
             imageResizerInput.click();
         });
 
         imageResizerInput.addEventListener("change", () => {
             resizeOptions.style.display = "block";
-            resizeImageBtn.style.display = "inline-block";
         });
 
         imageResizerWidth.addEventListener("input", () => {
@@ -548,19 +522,48 @@
 
         // PDF Tools (Placeholder)
         const pdfCompressorInput = document.getElementById("pdf-compressor-input");
-        const pdfCompressorBtn = document.getElementById("pdf-compressor-btn");
         const compressPdfBtn = document.getElementById("compress-pdf-btn");
 
-        pdfCompressorBtn.addEventListener("click", (e) => {
-            e.preventDefault();
+        compressPdfBtn.addEventListener("click", () => {
             pdfCompressorInput.click();
         });
 
         pdfCompressorInput.addEventListener("change", () => {
-            compressPdfBtn.style.display = "inline-block";
-        });
-
-        compressPdfBtn.addEventListener("click", () => {
             const file = pdfCompressorInput.files[0];
             if (file) {
-                al
+                alert("PDF compression functionality is not implemented in this example.");
+            }
+        });
+
+        // PDF to Word (Placeholder)
+        const pdfToWordInput = document.getElementById("pdf-to-word-input");
+        const convertPdfToWordBtn = document.getElementById("convert-pdf-to-word-btn");
+
+        convertPdfToWordBtn.addEventListener("click", () => {
+            pdfToWordInput.click();
+        });
+
+        pdfToWordInput.addEventListener("change", () => {
+            const file = pdfToWordInput.files[0];
+            if (file) {
+                alert("PDF to Word conversion functionality is not implemented in this example.");
+            }
+        });
+
+        // Word to PDF (Placeholder)
+        const wordToPdfInput = document.getElementById("word-to-pdf-input");
+        const convertWordToPdfBtn = document.getElementById("convert-word-to-pdf-btn");
+
+        convertWordToPdfBtn.addEventListener("click", () => {
+            wordToPdfInput.click();
+        });
+
+        wordToPdfInput.addEventListener("change", () => {
+            const file = wordToPdfInput.files[0];
+            if (file) {
+                alert("Word to PDF conversion functionality is not implemented in this example.");
+            }
+        });
+    </script>
+</body>
+</html>
