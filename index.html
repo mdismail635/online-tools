@@ -271,21 +271,43 @@
             <i class="fas fa-image"></i>
             <h2>Image Compressor</h2>
             <p>Compress and optimize images for faster web performance.</p>
-            <a href="#" class="use-tool-btn">Use Tool</a>
+            <input type="file" id="image-compressor-input" accept="image/*">
+            <div id="compression-quality-container" style="display: none;">
+                <label for="compression-quality">Quality: <span id="quality-value">70</span>%</label>
+                <input type="range" id="compression-quality" min="1" max="100" value="70">
+            </div>
+            <button id="compress-image-btn" style="display: none;">Compress</button>
+            <a href="#" class="use-tool-btn" id="image-compressor-btn">Use Tool</a>
         </div>
 
         <div class="tool-card">
             <i class="fas fa-file-image"></i>
             <h2>Image Converter</h2>
             <p>Convert images to different formats like JPG, PNG, and more.</p>
-            <a href="#" class="use-tool-btn">Use Tool</a>
+            <input type="file" id="image-converter-input" accept="image/*">
+            <select id="image-converter-format">
+                <option value="jpg">JPG</option>
+                <option value="png">PNG</option>
+                <option value="webp">WEBP</option>
+            </select>
+            <button id="convert-image-btn" style="display: none;">Convert</button>
+            <a href="#" class="use-tool-btn" id="image-converter-btn">Use Tool</a>
         </div>
 
         <div class="tool-card">
             <i class="fas fa-crop"></i>
             <h2>Image Resizer</h2>
             <p>Resize images to your desired dimensions.</p>
-            <a href="#" class="use-tool-btn">Use Tool</a>
+            <input type="file" id="image-resizer-input" accept="image/*">
+            <div id="resize-options" style="display: none;">
+                <label for="image-resizer-width">Width:</label>
+                <input type="number" id="image-resizer-width" placeholder="Width">
+                <label for="image-resizer-height">Height:</label>
+                <input type="number" id="image-resizer-height" placeholder="Height">
+                <label><input type="checkbox" id="lock-aspect-ratio"> Lock Aspect Ratio</label>
+            </div>
+            <button id="resize-image-btn" style="display: none;">Resize</button>
+            <a href="#" class="use-tool-btn" id="image-resizer-btn">Use Tool</a>
         </div>
 
         <!-- PDF Tools -->
@@ -293,21 +315,27 @@
             <i class="fas fa-file-pdf"></i>
             <h2>PDF Compressor</h2>
             <p>Reduce the size of your PDF files without losing quality.</p>
-            <a href="#" class="use-tool-btn">Use Tool</a>
+            <input type="file" id="pdf-compressor-input" accept="application/pdf">
+            <button id="compress-pdf-btn" style="display: none;">Compress</button>
+            <a href="#" class="use-tool-btn" id="pdf-compressor-btn">Use Tool</a>
         </div>
 
         <div class="tool-card">
             <i class="fas fa-file-export"></i>
             <h2>PDF to Word</h2>
             <p>Convert PDF files to editable Word documents.</p>
-            <a href="#" class="use-tool-btn">Use Tool</a>
+            <input type="file" id="pdf-to-word-input" accept="application/pdf">
+            <button id="convert-pdf-to-word-btn" style="display: none;">Convert</button>
+            <a href="#" class="use-tool-btn" id="pdf-to-word-btn">Use Tool</a>
         </div>
 
         <div class="tool-card">
             <i class="fas fa-file-import"></i>
             <h2>Word to PDF</h2>
             <p>Convert Word documents to PDF files.</p>
-            <a href="#" class="use-tool-btn">Use Tool</a>
+            <input type="file" id="word-to-pdf-input" accept=".doc,.docx">
+            <button id="convert-word-to-pdf-btn" style="display: none;">Convert</button>
+            <a href="#" class="use-tool-btn" id="word-to-pdf-btn">Use Tool</a>
         </div>
     </main>
 
@@ -346,6 +374,193 @@
                 modal.style.display = "none";
             }
         };
-    </script>
-</body>
-</html>
+
+        // Image Compressor
+        const imageCompressorInput = document.getElementById("image-compressor-input");
+        const imageCompressorBtn = document.getElementById("image-compressor-btn");
+        const compressImageBtn = document.getElementById("compress-image-btn");
+        const compressionQuality = document.getElementById("compression-quality");
+        const qualityValue = document.getElementById("quality-value");
+        const compressionQualityContainer = document.getElementById("compression-quality-container");
+
+        imageCompressorBtn.addEventListener("click", (e) => {
+            e.preventDefault();
+            imageCompressorInput.click();
+        });
+
+        imageCompressorInput.addEventListener("change", () => {
+            compressionQualityContainer.style.display = "block";
+            compressImageBtn.style.display = "inline-block";
+        });
+
+        compressImageBtn.addEventListener("click", () => {
+            const file = imageCompressorInput.files[0];
+            if (file) {
+                compressImage(file, compressionQuality.value);
+            }
+        });
+
+        compressionQuality.addEventListener("input", () => {
+            qualityValue.textContent = compressionQuality.value;
+        });
+
+        function compressImage(file, quality) {
+            const reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = (event) => {
+                const img = new Image();
+                img.src = event.target.result;
+                img.onload = () => {
+                    const canvas = document.createElement("canvas");
+                    const ctx = canvas.getContext("2d");
+                    canvas.width = img.width;
+                    canvas.height = img.height;
+                    ctx.drawImage(img, 0, 0);
+                    canvas.toBlob((blob) => {
+                        const link = document.createElement("a");
+                        link.download = "compressed-image.jpg";
+                        link.href = URL.createObjectURL(blob);
+                        link.click();
+                    }, "image/jpeg", quality / 100);
+                };
+            };
+        }
+
+        // Image Converter
+        const imageConverterInput = document.getElementById("image-converter-input");
+        const imageConverterBtn = document.getElementById("image-converter-btn");
+        const convertImageBtn = document.getElementById("convert-image-btn");
+        const imageConverterFormat = document.getElementById("image-converter-format");
+
+        imageConverterBtn.addEventListener("click", (e) => {
+            e.preventDefault();
+            imageConverterInput.click();
+        });
+
+        imageConverterInput.addEventListener("change", () => {
+            convertImageBtn.style.display = "inline-block";
+        });
+
+        convertImageBtn.addEventListener("click", () => {
+            const file = imageConverterInput.files[0];
+            if (file) {
+                convertImage(file, imageConverterFormat.value);
+            }
+        });
+
+        function convertImage(file, format) {
+            const reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = (event) => {
+                const img = new Image();
+                img.src = event.target.result;
+                img.onload = () => {
+                    const canvas = document.createElement("canvas");
+                    const ctx = canvas.getContext("2d");
+                    canvas.width = img.width;
+                    canvas.height = img.height;
+                    ctx.drawImage(img, 0, 0);
+                    canvas.toBlob((blob) => {
+                        const link = document.createElement("a");
+                        link.download = `converted-image.${format}`;
+                        link.href = URL.createObjectURL(blob);
+                        link.click();
+                    }, `image/${format}`, 1);
+                };
+            };
+        }
+
+        // Image Resizer
+        const imageResizerInput = document.getElementById("image-resizer-input");
+        const imageResizerBtn = document.getElementById("image-resizer-btn");
+        const resizeImageBtn = document.getElementById("resize-image-btn");
+        const imageResizerWidth = document.getElementById("image-resizer-width");
+        const imageResizerHeight = document.getElementById("image-resizer-height");
+        const lockAspectRatio = document.getElementById("lock-aspect-ratio");
+        const resizeOptions = document.getElementById("resize-options");
+
+        imageResizerBtn.addEventListener("click", (e) => {
+            e.preventDefault();
+            imageResizerInput.click();
+        });
+
+        imageResizerInput.addEventListener("change", () => {
+            resizeOptions.style.display = "block";
+            resizeImageBtn.style.display = "inline-block";
+        });
+
+        imageResizerWidth.addEventListener("input", () => {
+            if (lockAspectRatio.checked && imageResizerInput.files[0]) {
+                const img = new Image();
+                img.src = URL.createObjectURL(imageResizerInput.files[0]);
+                img.onload = () => {
+                    const aspectRatio = img.width / img.height;
+                    imageResizerHeight.value = Math.round(imageResizerWidth.value / aspectRatio);
+                };
+            }
+        });
+
+        imageResizerHeight.addEventListener("input", () => {
+            if (lockAspectRatio.checked && imageResizerInput.files[0]) {
+                const img = new Image();
+                img.src = URL.createObjectURL(imageResizerInput.files[0]);
+                img.onload = () => {
+                    const aspectRatio = img.width / img.height;
+                    imageResizerWidth.value = Math.round(imageResizerHeight.value * aspectRatio);
+                };
+            }
+        });
+
+        resizeImageBtn.addEventListener("click", () => {
+            const file = imageResizerInput.files[0];
+            if (file) {
+                const width = parseInt(imageResizerWidth.value);
+                const height = parseInt(imageResizerHeight.value);
+                if (width && height) {
+                    resizeImage(file, width, height);
+                } else {
+                    alert("Please enter valid width and height.");
+                }
+            }
+        });
+
+        function resizeImage(file, width, height) {
+            const reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = (event) => {
+                const img = new Image();
+                img.src = event.target.result;
+                img.onload = () => {
+                    const canvas = document.createElement("canvas");
+                    const ctx = canvas.getContext("2d");
+                    canvas.width = width;
+                    canvas.height = height;
+                    ctx.drawImage(img, 0, 0, width, height);
+                    canvas.toBlob((blob) => {
+                        const link = document.createElement("a");
+                        link.download = "resized-image.jpg";
+                        link.href = URL.createObjectURL(blob);
+                        link.click();
+                    }, "image/jpeg", 1);
+                };
+            };
+        }
+
+        // PDF Tools (Placeholder)
+        const pdfCompressorInput = document.getElementById("pdf-compressor-input");
+        const pdfCompressorBtn = document.getElementById("pdf-compressor-btn");
+        const compressPdfBtn = document.getElementById("compress-pdf-btn");
+
+        pdfCompressorBtn.addEventListener("click", (e) => {
+            e.preventDefault();
+            pdfCompressorInput.click();
+        });
+
+        pdfCompressorInput.addEventListener("change", () => {
+            compressPdfBtn.style.display = "inline-block";
+        });
+
+        compressPdfBtn.addEventListener("click", () => {
+            const file = pdfCompressorInput.files[0];
+            if (file) {
+                al
