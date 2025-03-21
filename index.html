@@ -280,7 +280,6 @@
             <script>
                 (adsbygoogle = window.adsbygoogle || []).push({});
             </script>
-            
 
             <!-- New Ad Unit -->
             <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4606052222473807"
@@ -567,21 +566,6 @@
         });
 
         // PDF to Word (Placeholder)
-        const pdfToWordInput = document.getElementById("pdf-to-word-input");
-        const convertPdfToWordBtn = document.getElementById("convert-pdf-to-word-btn");
-
-        convertPdfToWordBtn.addEventListener("click", () => {
-            pdfToWordInput.click();
-        });
-
-        pdfToWordInput.addEventListener("change", () => {
-            const file = pdfToWordInput.files[0];
-            if (file) {
-                alert("PDF to Word conversion functionality is not implemented in this example.");
-            }
-            });
-
-        // Word to PDF (Placeholder)
         const wordToPdfInput = document.getElementById("word-to-pdf-input");
         const convertWordToPdfBtn = document.getElementById("convert-word-to-pdf-btn");
 
@@ -589,7 +573,8 @@
             wordToPdfInput.click();
         });
 
-        wordToPdfInput.addEventListener("change", () => {const file = wordToPdfInput.files[0];
+        wordToPdfInput.addEventListener("change", () => {
+            const file = wordToPdfInput.files[0];
             if (file) {
                 alert("Word to PDF conversion functionality is not implemented in this example.");
             }
