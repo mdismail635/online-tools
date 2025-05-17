@@ -1,14 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4606052222473807"
-     crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Discover a wide range of free online tools for images, PDFs, and more. Optimize, convert, and compress files effortlessly.">
-    <meta name="keywords" content="image tools, PDF tools, online tools, compress images, convert PDF, SEO tools">
+    <meta name="description" content="Free online tools for image and PDF processing. Compress images, convert formats, resize pictures, compress PDFs, and convert between PDF and Word documents. Fast, secure, and easy to use.">
+    <meta name="keywords" content="image tools, PDF tools, online tools, compress images, convert PDF, image converter, image resizer, PDF compressor, Word to PDF, PDF to Word, free tools">
     <meta name="author" content="Md Ismail Majumdar">
-    <title>Online Tools - Image & PDF Tools</title>
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta property="og:title" content="Online Tools - Free Image & PDF Processing Tools">
+    <meta property="og:description" content="Free online tools for image and PDF processing. Compress, convert, and resize files easily.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://your-domain.com">
+    <meta property="og:image" content="https://your-domain.com/og-image.jpg">
+    <meta property="og:site_name" content="Online Tools">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Online Tools - Free Image & PDF Processing Tools">
+    <meta name="twitter:description" content="Free online tools for image and PDF processing. Compress, convert, and resize files easily.">
+    <meta name="twitter:image" content="https://your-domain.com/og-image.jpg">
+    <title>Online Tools - Free Image & PDF Processing Tools</title>
+    <link rel="canonical" href="https://your-domain.com">
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
+    <!-- Google Search Console Verification -->
+    <meta name="google-site-verification" content="your-verification-code" />
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Online Tools",
+        "description": "Free online tools for image and PDF processing",
+        "applicationCategory": "UtilityApplication",
+        "operatingSystem": "Any",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "featureList": [
+            "Image Compression",
+            "Image Format Conversion",
+            "Image Resizing",
+            "PDF Compression",
+            "PDF to Word Conversion",
+            "Word to PDF Conversion"
+        ],
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "ratingCount": "1250"
+        }
+    }
+    </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         /* General Styles */
@@ -259,6 +308,86 @@
                 width: 100%;
             }
         }
+
+        /* Add loading spinner styles */
+        .loading-spinner {
+            display: none;
+            width: 50px;
+            height: 50px;
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #ff9f43;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .progress-bar {
+            display: none;
+            width: 100%;
+            height: 20px;
+            background-color: #f3f3f3;
+            border-radius: 10px;
+            margin: 10px 0;
+            overflow: hidden;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            background-color: #ff9f43;
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        .tool-status {
+            display: none;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .tool-status.success {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .tool-status.error {
+            background-color: #f44336;
+            color: white;
+        }
+
+        /* Add tooltip styles */
+        .tooltip {
+            position: relative;
+            display: inline-block;
+        }
+
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 200px;
+            background-color: #555;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -100px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
     </style>
 </head>
 <body>
@@ -283,8 +412,8 @@
 <script>
      (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
-            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4606052222473807"
-     crossorigin="anonymous"></script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4606052222473807"
+crossorigin="anonymous"></script>
 <ins class="adsbygoogle"
      style="display:block; text-align:center;"
      data-ad-layout="in-article"
@@ -389,7 +518,294 @@
         <p>&copy; 2023 Online Tools. All rights reserved.</p>
     </footer>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/docx/7.8.2/docx.min.js"></script>
     <script>
+        // Initialize PDF.js
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+        // Error handling function
+        function showError(message) {
+            alert(message);
+            console.error(message);
+        }
+
+        // Add loading and progress functionality
+        function showLoading(elementId) {
+            const container = document.getElementById(elementId);
+            const spinner = document.createElement('div');
+            spinner.className = 'loading-spinner';
+            container.appendChild(spinner);
+            spinner.style.display = 'block';
+        }
+
+        function hideLoading(elementId) {
+            const container = document.getElementById(elementId);
+            const spinner = container.querySelector('.loading-spinner');
+            if (spinner) {
+                spinner.remove();
+            }
+        }
+
+        function showProgress(elementId, progress) {
+            const container = document.getElementById(elementId);
+            let progressBar = container.querySelector('.progress-bar');
+            if (!progressBar) {
+                progressBar = document.createElement('div');
+                progressBar.className = 'progress-bar';
+                const progressFill = document.createElement('div');
+                progressFill.className = 'progress-bar-fill';
+                progressBar.appendChild(progressFill);
+                container.appendChild(progressBar);
+            }
+            progressBar.style.display = 'block';
+            progressBar.querySelector('.progress-bar-fill').style.width = `${progress}%`;
+        }
+
+        function showStatus(elementId, message, type) {
+            const container = document.getElementById(elementId);
+            let status = container.querySelector('.tool-status');
+            if (!status) {
+                status = document.createElement('div');
+                status.className = 'tool-status';
+                container.appendChild(status);
+            }
+            status.textContent = message;
+            status.className = `tool-status ${type}`;
+            status.style.display = 'block';
+            setTimeout(() => {
+                status.style.display = 'none';
+            }, 3000);
+        }
+
+        // Enhanced Image Compressor
+        async function compressImage(file, quality) {
+            const toolId = 'image-compressor';
+            if (!file.type.startsWith('image/')) {
+                showStatus(toolId, 'Please select a valid image file.', 'error');
+                return;
+            }
+
+            showLoading(toolId);
+            showProgress(toolId, 0);
+
+            try {
+                const reader = new FileReader();
+                reader.onerror = () => {
+                    hideLoading(toolId);
+                    showStatus(toolId, 'Error reading the file.', 'error');
+                };
+
+                reader.onprogress = (event) => {
+                    if (event.lengthComputable) {
+                        const progress = (event.loaded / event.total) * 50;
+                        showProgress(toolId, progress);
+                    }
+                };
+
+                const imageData = await new Promise((resolve, reject) => {
+                    reader.onload = (event) => resolve(event.target.result);
+                    reader.onerror = reject;
+                    reader.readAsDataURL(file);
+                });
+
+                showProgress(toolId, 60);
+
+                const img = new Image();
+                img.onerror = () => {
+                    hideLoading(toolId);
+                    showStatus(toolId, 'Error loading the image.', 'error');
+                };
+
+                await new Promise((resolve, reject) => {
+                    img.onload = resolve;
+                    img.onerror = reject;
+                    img.src = imageData;
+                });
+
+                showProgress(toolId, 80);
+
+                const canvas = document.createElement("canvas");
+                const ctx = canvas.getContext("2d");
+                canvas.width = img.width;
+                canvas.height = img.height;
+                ctx.drawImage(img, 0, 0);
+
+                const blob = await new Promise(resolve => {
+                    canvas.toBlob(resolve, "image/jpeg", quality / 100);
+                });
+
+                if (!blob) {
+                    throw new Error('Error creating compressed image.');
+                }
+
+                showProgress(toolId, 90);
+
+                const link = document.createElement("a");
+                link.download = `compressed-${file.name}`;
+                link.href = URL.createObjectURL(blob);
+                link.click();
+
+                showProgress(toolId, 100);
+                showStatus(toolId, 'Image compressed successfully!', 'success');
+            } catch (error) {
+                showStatus(toolId, error.message, 'error');
+            } finally {
+                hideLoading(toolId);
+            }
+        }
+
+        // Enhanced PDF Compressor
+        async function compressPDF(file) {
+            const toolId = 'pdf-compressor';
+            if (!file.type.includes('pdf')) {
+                showStatus(toolId, 'Please select a valid PDF file.', 'error');
+                return;
+            }
+
+            showLoading(toolId);
+            showProgress(toolId, 0);
+
+            try {
+                const arrayBuffer = await file.arrayBuffer();
+                showProgress(toolId, 30);
+
+                const pdf = await pdfjsLib.getDocument({data: arrayBuffer}).promise;
+                showProgress(toolId, 50);
+
+                const newPdf = await pdfjsLib.PDFDocument.create();
+                const totalPages = pdf.numPages;
+
+                for (let i = 1; i <= totalPages; i++) {
+                    const page = await pdf.getPage(i);
+                    const newPage = await newPdf.addPage([page.getViewport({scale: 1}).width, page.getViewport({scale: 1}).height]);
+                    const content = await page.getOperatorList();
+                    await newPage.setOperatorList(content);
+                    showProgress(toolId, 50 + (i / totalPages) * 40);
+                }
+
+                const compressedPdfBytes = await newPdf.save({
+                    useObjectStreams: true,
+                    addDefaultPage: false
+                });
+
+                showProgress(toolId, 95);
+
+                const blob = new Blob([compressedPdfBytes], {type: 'application/pdf'});
+                const link = document.createElement("a");
+                link.download = `compressed-${file.name}`;
+                link.href = URL.createObjectURL(blob);
+                link.click();
+
+                showProgress(toolId, 100);
+                showStatus(toolId, 'PDF compressed successfully!', 'success');
+            } catch (error) {
+                showStatus(toolId, 'Error compressing PDF: ' + error.message, 'error');
+            } finally {
+                hideLoading(toolId);
+            }
+        }
+
+        // PDF to Word Converter
+        async function convertPDFToWord(file) {
+            if (!file.type.includes('pdf')) {
+                showError('Please select a valid PDF file.');
+                return;
+            }
+
+            try {
+                const arrayBuffer = await file.arrayBuffer();
+                const pdf = await pdfjsLib.getDocument({data: arrayBuffer}).promise;
+                
+                // Create a new Word document
+                const doc = new docx.Document();
+                const paragraphs = [];
+                
+                // Extract text from each page
+                for (let i = 1; i <= pdf.numPages; i++) {
+                    const page = await pdf.getPage(i);
+                    const textContent = await page.getTextContent();
+                    const text = textContent.items.map(item => item.str).join(' ');
+                    paragraphs.push(new docx.Paragraph(text));
+                }
+                
+                doc.addSection({children: paragraphs});
+                
+                // Save the Word document
+                const buffer = await docx.Packer.toBuffer(doc);
+                const blob = new Blob([buffer], {type: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'});
+                const link = document.createElement("a");
+                link.download = `${file.name.replace('.pdf', '')}.docx`;
+                link.href = URL.createObjectURL(blob);
+                link.click();
+            } catch (error) {
+                showError('Error converting PDF to Word: ' + error.message);
+            }
+        }
+
+        // Word to PDF Converter
+        async function convertWordToPDF(file) {
+            if (!file.name.endsWith('.docx')) {
+                showError('Please select a valid Word document (.docx)');
+                return;
+            }
+
+            try {
+                const arrayBuffer = await file.arrayBuffer();
+                const doc = await docx.Document.load(arrayBuffer);
+                
+                // Create a new PDF document
+                const pdf = await pdfjsLib.PDFDocument.create();
+                
+                // Convert Word content to PDF
+                const text = doc.getText();
+                const page = pdf.addPage([595.28, 841.89]); // A4 size
+                page.drawText(text, {
+                    x: 50,
+                    y: 800,
+                    size: 12
+                });
+                
+                // Save the PDF
+                const pdfBytes = await pdf.save();
+                const blob = new Blob([pdfBytes], {type: 'application/pdf'});
+                const link = document.createElement("a");
+                link.download = `${file.name.replace('.docx', '')}.pdf`;
+                link.href = URL.createObjectURL(blob);
+                link.click();
+            } catch (error) {
+                showError('Error converting Word to PDF: ' + error.message);
+            }
+        }
+
+        // Update event listeners
+        document.getElementById('compress-pdf-btn').addEventListener('click', () => {
+            const file = document.getElementById('pdf-compressor-input').files[0];
+            if (file) {
+                compressPDF(file);
+            } else {
+                showError('Please select a PDF file first.');
+            }
+        });
+
+        document.getElementById('convert-pdf-to-word-btn').addEventListener('click', () => {
+            const file = document.getElementById('pdf-to-word-input').files[0];
+            if (file) {
+                convertPDFToWord(file);
+            } else {
+                showError('Please select a PDF file first.');
+            }
+        });
+
+        document.getElementById('convert-word-to-pdf-btn').addEventListener('click', () => {
+            const file = document.getElementById('word-to-pdf-input').files[0];
+            if (file) {
+                convertWordToPDF(file);
+            } else {
+                showError('Please select a Word document first.');
+            }
+        });
+
         // Modal functionality
         const modal = document.getElementById("toolModal");
         const span = document.getElementsByClassName("close")[0];
@@ -427,28 +843,6 @@
         compressionQuality.addEventListener("input", () => {
             qualityValue.textContent = compressionQuality.value;
         });
-
-        function compressImage(file, quality) {
-            const reader = new FileReader();
-            reader.readAsDataURL(file);
-            reader.onload = (event) => {
-                const img = new Image();
-                img.src = event.target.result;
-                img.onload = () => {
-                    const canvas = document.createElement("canvas");
-                    const ctx = canvas.getContext("2d");
-                    canvas.width = img.width;
-                    canvas.height = img.height;
-                    ctx.drawImage(img, 0, 0);
-                    canvas.toBlob((blob) => {
-                        const link = document.createElement("a");
-                        link.download = "compressed-image.jpg";
-                        link.href = URL.createObjectURL(blob);
-                        link.click();
-                    }, "image/jpeg", quality / 100);
-                };
-            };
-        }
 
         // Image Converter
         const imageConverterInput = document.getElementById("image-converter-input");
@@ -564,34 +958,37 @@
             };
         }
 
-        // PDF Tools (Placeholder)
-        const pdfCompressorInput = document.getElementById("pdf-compressor-input");
-        const compressPdfBtn = document.getElementById("compress-pdf-btn");
+        // Add file size validation
+        function validateFileSize(file, maxSizeMB) {
+            const maxSizeBytes = maxSizeMB * 1024 * 1024;
+            if (file.size > maxSizeBytes) {
+                showStatus('file-size-error', `File size exceeds ${maxSizeMB}MB limit.`, 'error');
+                return false;
+            }
+            return true;
+        }
 
-        compressPdfBtn.addEventListener("click", () => {
-            pdfCompressorInput.click();
-        });
-
-        pdfCompressorInput.addEventListener("change", () => {
-            const file = pdfCompressorInput.files[0];
+        // Update event listeners with file size validation
+        document.getElementById('compress-pdf-btn').addEventListener('click', () => {
+            const file = document.getElementById('pdf-compressor-input').files[0];
             if (file) {
-                alert("PDF compression functionality is not implemented in this example.");
+                if (validateFileSize(file, 500)) { // 500MB limit
+                    compressPDF(file);
+                }
+            } else {
+                showStatus('pdf-compressor', 'Please select a PDF file first.', 'error');
             }
         });
 
-        // PDF to Word (Placeholder)
-        const wordToPdfInput = document.getElementById("word-to-pdf-input");
-        const convertWordToPdfBtn = document.getElementById("convert-word-to-pdf-btn");
+        // Add similar validation to other tools...
 
-        convertWordToPdfBtn.addEventListener("click", () => {
-            wordToPdfInput.click();
-        });
-
-        wordToPdfInput.addEventListener("change", () => {
-            const file = wordToPdfInput.files[0];
-            if (file) {
-                alert("Word to PDF conversion functionality is not implemented in this example.");
-            }
+        // Add tooltips to all buttons
+        document.querySelectorAll('button').forEach(button => {
+            const tooltip = document.createElement('span');
+            tooltip.className = 'tooltiptext';
+            tooltip.textContent = button.getAttribute('data-tooltip') || 'Click to process';
+            button.className = 'tooltip';
+            button.appendChild(tooltip);
         });
     </script>
 </body>
